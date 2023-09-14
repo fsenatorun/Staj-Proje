@@ -7,7 +7,7 @@ if(!$_SESSION["ISLOGIN"]) {
 }
 
 
-$mesaj = "Merhaba, Görevlerinize Hoş Geldiniz. Görevlerinizi Eklemek ve Düzenlemek İçin 'Görevlerim' Bağlantısına Gidiniz.";
+$mesaj = "Merhaba. Görevler Ekranına Geçmek İçin 'Görevlerim'e tıklayınız.";
 print $mesaj;
 
 $currentPage= $_SERVER['PHP_SELF'];
@@ -98,7 +98,7 @@ $currentPage= $_SERVER['PHP_SELF'];
 <nav class="navbar navbar-bg-custom">
   <div class="container-fluid">
     <a class="navbar-brand navbar-brand-custom">Ne aramıştınız?</a>
-    <form class="d-flex" role="search">
+      <form class="d-flex" role="search" action="arat.php">
       <input class="form-control me-2 search-text" type="Ara" placeholder="Ara" aria-label="Ara">
       <button class="btn btn-outline-success" type="submit">Ara</button>
     </form>
@@ -121,38 +121,20 @@ $currentPage= $_SERVER['PHP_SELF'];
                 <svg class="bi me-2" width="16" height="16" background-color="#0000006b"><use xlink:href="#home"/></svg>
                 Görevlerim
             </a>
-        </li>
-        <li>
-            <a href="#" style="color: #f49dcf;" class="nav-link <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?>">
+            <a href="kronometre.php" style="color: #f49dcf;" class="nav-link <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?>">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Rehber
+                Kronometre
             </a>
-        </li>
-        <li>
-            <a href="#" style="color: #f49dcf;" class="nav-link  <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?> ">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                Yer İşaretleri
-            </a>
-        </li>
-        <li>
-            <a href="#" style="color: #f49dcf;" class="nav-link  <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?> ">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-               Dosyalar
-            </a>
-        </li>
-        <li>
 
         </li>
     </ul>
-    <hr>
-    <div class="dropdown">
-        <a href="cikis.php" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="cikis.php" class="d-flex align-items-center text-white text-decoration-none">
             <img src="resimler/kedi.png" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong>Çıkış Yap?</strong>
         </a>
 
-    </div>
 </div>
+    <p class="h1" style="padding: 100">Görevlerinizi görmek için 'Görevlerim'e tıklayınız.</p>
 </main>
 
 <style>

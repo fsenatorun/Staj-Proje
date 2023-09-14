@@ -1,98 +1,95 @@
- <?php//bu asıl belge değil burası giristen sonraki ekrana giristen sonraki ekran buraya aktarılacak
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Navbar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #2e5275; /* Koyu yeşil rengi */
+            color: white; /* Metin rengi */
+        }
+
+        .navbar-brand-custom {
+            color: white !important; /* Beyaz renk */
+        }
+
+        .navbar-bg-custom {
+            background-color:#b6d0eb; /* Açık krem rengi */
+        }
+
+        .search-text {
+            color: #145a32 !important; /* Koyu yeşil rengi */
+        }
+
+        .search-text:focus {
+            color: #145a32 !important; /* Koyu yeşil rengi */
+        }
+
+        .search-text::placeholder {
+            color: #000000; /* Koyu yeşil rengi */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">TO-DO?</a>
+    <html>
+    <head>
+        <title>Küçük Resim Görüntüleme</title>
+    </head>
+    <body>
 
 
- ?>
-
-
-
-
-
-
-
-
-<body id="body-pd">
-    <header class="header" id="header" >
-	
-	<div style="color: white;">
     <?php
-    $mesaj = "Merhaba, Görevlerinize Hoş Geldiniz."; 
-    print $mesaj;
-    ?>
-</div>
-
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-		<?php
     // Resim yolunu belirtin
     $resimler = 'resimler/akbbaa.png';
     $resimAlt = 'Logo Resmi';
     $genislik = 50; // Küçültülen genişlik değeri
-    $yukseklik = 50; // Küçültülen yükseklik değeri
+    $yukseklik = 60; // Küçültülen yükseklik değeri
     ?>
-        <div class="header_img"> <img src="<?php echo $resimler; ?>" alt="<?php echo $resimAlt; ?>" width="<?php echo $genislik;50 ?>" height="<?php echo $yukseklik;50 ?>" alt=""> </div>
-    </header>
-    <div class="5-navbar" id="nav-bar">
-        <nav class="nav">
-            <div> <a href="hakkimizda.php" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">TO-DO?</span> </a>
-                <div class="nav_list"> <a href="gorevler.php" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Görevlerim</span>
-				</a> <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Rehber</span> </a>
-				<a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Mesajlar</span>  </a>
-				<a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Yer İşaretleri</span> </a>
-				<a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Dosyalar</span> </a>
-				
-				
-				</div>
-           
-		   </div> <a href="cikis.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Çıkış Yap</span> </a>
-        </nav>
+
+    <!-- Resmi küçültülmüş boyutta görüntülemek için width ve height özelliklerini kullanın -->
+    <img src="<?php echo $resimler; ?>" alt="<?php echo $resimAlt; ?>" width="<?php echo $genislik;50 ?>" height="<?php echo $yukseklik;50 ?>">
+    </body>
+    </html>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">Ana Sayfa <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="hakkimizda.php">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="hizmetlerimiz.php">Burada Ne Yapabilirim?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="iletisim.php">İletişim</a>
+            </li>
+        </ul>
     </div>
-   
-	
-	<style>
-	
-	
-	@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");:root{--header-height: 3rem;--nav-width: 68px;--first-color: #4723D9;--first-color-light: #AFA5D9;--white-color: #1f1350;--body-font: 'Nunito', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}a{text-decoration: none}.header{width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}.header_img{width: 35px;height: 35px;display: flex;justify-content: center;border-radius: 50%;overflow: hidden}.header_img img{width: 40px}.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}.nav_logo-name{color: var(--white-color);font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}.nav_link:hover{color: var(--white-color)}.nav_icon{font-size: 1.25rem}.show{left: 0}.body-pd{padding-left: calc(var(--nav-width) + 1rem)}.active{color: var(--white-color)}.active::before{content: '';position: absolute;left: 0;width: 2px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
-	
-	</style>
-	
-	
-	
-	<script>
-	document.addEventListener("DOMContentLoaded", function(event) {
-   
-const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-const toggle = document.getElementById(toggleId),
-nav = document.getElementById(navId),
-bodypd = document.getElementById(bodyId),
-headerpd = document.getElementById(headerId)
+</nav>
 
-// Validate that all variables exist
-if(toggle && nav && bodypd && headerpd){
-toggle.addEventListener('click', ()=>{
-// show navbar
-nav.classList.toggle('show')
-// change icon
-toggle.classList.toggle('bx-x')
-// add padding to body
-bodypd.classList.toggle('body-pd')
-// add padding to header
-headerpd.classList.toggle('body-pd')
-})
-}
-}
+<nav class="navbar navbar-bg-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-brand-custom">Ne aramıştınız?</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 search-text" type="Ara" placeholder="Ara" aria-label="Ara">
+            <button class="btn btn-outline-success" type="submit">Ara</button>
+        </form>
+    </div>
+</nav>
 
-showNavbar('header-toggle','nav-bar','body-pd','header')
-
-/*===== LINK ACTIVE =====*/
-const linkColor = document.querySelectorAll('.nav_link')
-
-function colorLink(){
-if(linkColor){
-linkColor.forEach(l=> l.classList.remove('active'))
-this.classList.add('active')
-}
-}
-linkColor.forEach(l=> l.addEventListener('click', colorLink))
-
- // Your code to run since DOM is loaded and ready
-});
-</script>
+<div class="container mt-5">
+    <h2>Biz Kimiz?</h2>
+    <p>Biz Staj Projesi Olarak Bu Sayfayı Tasarladık.</p>
+    <a href="index.php"> Ana Sayfaya Dönmek İçin Tıklayınız.</a>
+    <div class="container text-center">
+        <div class="row">

@@ -1,8 +1,8 @@
+
 <?php
 session_start();
 include "config.php";
 
-//if(!isset($_SESSION["ISLOGIN"]) && !($_SESSION["ISLOGIN"]==true)) {
 if(!$_SESSION["ISLOGIN"]) {
     header("Location: hataliGiris.php");
 }
@@ -10,24 +10,25 @@ if(!$_SESSION["ISLOGIN"]) {
 $mesaj = "Merhaba, Görevlerinize Hoş Geldiniz.";
 print $mesaj;
 
-$currentPage= $_SERVER['PHP_SELF'];
+$currentPage = $_SERVER['PHP_SELF'];
 
-if(isset($_POST["formname"])){
+// Form verilerini al
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    foreach ($_POST["items"] as $item) {
-        $item_name = $item['item_name'];
-        $item_priority = $item['item_priority'];
-        $item_start_date = $item['item_start_date'];
-        $item_end_date = $item['item_end_date'];
+    for($i =0;$i<count($_POST["items"]);$i++){
+        $item_name = $_POST['items'][$i]["item_name"];
+        $item_priority = $_POST['items'][$i]["item_priority"];
+        $item_start_date = $_POST['items'][$i]["item_start_date"];
+        $item_end_date = $_POST['items'][$i]["item_end_date"];
+        $item_done = isset($_POST['items'][$i]["item_done"]) ? 1 : 0;
 
-        echo "<br>Görev Adı: $item_name <br>, Öncelik: $item_priority<br>, Başlangıç Tarihi: $item_start_date <br>, Bitiş Tarihi: $item_end_date<br>";
+        dummyInsertTask($item_name, $item_priority, $item_end_date, $item_done, $item_start_date);
+
     }
 
-    var_dump($_POST);
-    exit();
 }
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -37,6 +38,12 @@ if(isset($_POST["formname"])){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        .btn-danger {
+            padding: 8px 50px; /* Sil butonunun boyutunu ayarlayın */
+            font-size 18px; /* Sil butonunun yazı boyutunu ayarlayın */
+        }
+    </style>
 
     <style>
         body {
@@ -77,7 +84,7 @@ if(isset($_POST["formname"])){
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">TO-DO?</a>
+    <a class="navbar-brand" href="index.php">TO-DO?</a>
 
     <?php
     // Resim yolunu belirtin
@@ -116,7 +123,7 @@ if(isset($_POST["formname"])){
 <nav class="navbar navbar-bg-custom">
     <div class="container-fluid">
         <a class="navbar-brand navbar-brand-custom">Ne aramıştınız?</a>
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" action="arat.php">
             <input class="form-control me-2 search-text" type="Ara" placeholder="Ara" aria-label="Ara">
             <button class="btn btn-outline-success" type="submit">Ara</button>
         </form>
@@ -130,47 +137,24 @@ if(isset($_POST["formname"])){
             <svg class="bi me-2" width="40" height="32"><use/></svg>
             <span class="fs-4"  style="font-size: 24px;">Menü</span>
         </a>
-        <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
 
                 <a href="gorevler.php" style="color: #f49dcf;" class="nav-link <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?> " aria-current="page" background-color="#0000006b"; >
-
                     <svg class="bi me-2" width="16" height="16" background-color="#0000006b"><use xlink:href="#home"/></svg>
                     Görevlerim
                 </a>
-
-            </li>
-            <li>
-                <a href="#" style="color: #f49dcf;" class="nav-link <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?>">
+                <a href="kronometre.php" style="color: #f49dcf;" class="nav-link <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?>">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                    Rehber
+                    Kronometre
                 </a>
-            </li>
-            <li>
-                <a href="#" style="color: #f49dcf;" class="nav-link  <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?> ">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                    Yer İşaretleri
-                </a>
-            </li>
-            <li>
-                <a href="#" style="color: #f49dcf;" class="nav-link  <?php $currentPage=="/stajProje/giristenSonrakiEkran.php" ? print "" :""?> ">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                    Dosyalar
-                </a>
-            </li>
-            <li>
-
             </li>
         </ul>
-        <hr>
-        <div class="dropdown">
-            <a href="cikis.php" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="cikis.php" class="d-flex align-items-center text-white text-decoration-none custom-link">
                 <img src="resimler/kedi.png" alt="" width="32" height="32" class="rounded-circle me-2">
                 <strong>Çıkış Yap?</strong>
-            </a>
+        </a>
 
-        </div>
     </div>
     <div class="d-flex flex-column col-md-9">
 
@@ -182,30 +166,32 @@ if(isset($_POST["formname"])){
                 <div data-repeater-item class="mb-5">
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" name="item_name" placeholder="Görevinizi Yazınız.">
+                            <input type="text" class="form-control" name="item_name" placeholder="Görevinizi Yazınız." required>
                         </div>
                         <div class="col-md-2">
-                            <select class="form-select" name="item_priority"  aria-label="Disabled select example" >
+                            <select class="form-select" name="item_priority" aria-label="Disabled select example" required>
                                 <option selected disabled>Öncelik</option>
                                 <option value="dusuk">Düşük!</option>
                                 <option value="orta">Orta!!</option>
                                 <option value="yuksek">Yüksek!!!</option>
                             </select>
                         </div>
-
                         <div class="col-md-2">
-                            <input type="text" class="date-picker form-control" name="item_start_date" placeholder="Başlangıç Tarihi">
+                            <input type="text" class="date-picker form-control" name="item_start_date" placeholder="Başlangıç Tarihi" required>
                         </div>
                         <div class="col-md-2">
-                            <input type="text" class="date-picker form-control" name="item_end_date" placeholder="Bitiş Tarihi">
+                            <input type="text" class="date-picker form-control" name="item_end_date" placeholder="Bitiş Tarihi" required>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="checkbox" class="form-check-input" name="item_done" style="transform: scale(2); margin: 10px;">
                         </div>
                         <div class="col-md-2">
-                            <input class="btn btn-danger" data-repeater-delete type="button" value="Sil">
+                            <button class="btn btn-danger" data-repeater-delete type="button">Sil</button>
                         </div>
                     </div>
-
                 </div>
             </div>
+
 
             <br>
             <input class="btn btn-success" data-repeater-create type="button" value="Yeni Görev Ekle">
@@ -313,7 +299,7 @@ if(isset($_POST["formname"])){
             show: function () {
                 $(this).slideDown();
                 $(this).find('.date-picker').datepicker({
-                    dateFormat: 'dd/mm/yy'
+                    dateFormat: 'yy-mm-dd'
                 });
                 $(this).find('.priority-button').on('click', function () {
                     $('.priority-options').toggle();

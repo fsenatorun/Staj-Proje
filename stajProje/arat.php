@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #310a0a; /* Koyu yeşil rengi */
+            background-color: #72551d; /* Koyu yeşil rengi */
             color: white; /* Metin rengi */
         }
 
@@ -15,7 +15,7 @@
         }
 
         .navbar-bg-custom {
-            background-color: #2a0f13; /* Açık krem rengi */
+            background-color: #e0d58e; /* Açık krem rengi */
         }
 
         .search-text {
@@ -34,7 +34,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php">TO-DO?</a>
+    <a class="navbar-brand" href="#">TO-DO?</a>
     <html>
     <head>
         <title>Küçük Resim Görüntüleme</title>
@@ -44,9 +44,9 @@
 
     <?php
     // Resim yolunu belirtin
-    $resimler = 'resimler/zz.png';
+    $resimler = 'resimler/dıııt.jpg';
     $resimAlt = 'Logo Resmi';
-    $genislik = 80; // Küçültülen genişlik değeri
+    $genislik = 50; // Küçültülen genişlik değeri
     $yukseklik = 60; // Küçültülen yükseklik değeri
     ?>
 
@@ -62,7 +62,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Ana Sayfa <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Ana Sayfa <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="hakkimizda.php">Hakkımızda</a>
@@ -88,10 +88,10 @@
 </nav>
 
 <div class="container mt-5">
-    <h2>Burada Ne Yapabilirim?</h2>
-    <p>Burada günlük görevlerinizi tasarlayabilir ve koruyabilirsiniz. Aynı zamanda çalışma sürenizi hesaplayabilmek için kronometremizi kullanabilirsiniz. Görevleriniz için başlangıç ve bitişler aynı zamanda öncelik sıralmaanızı güncelleyebilirsiniz. Hemen kayıt olun ve görevlerinizi planlamaya başlayın. </p>
-    <a href="index.php" style="color: #9b9c9c;">Ana Sayfaya Dönmek İçin Tıklayınız.</a>
+    <h2>Aradığınızı Bulamadık.</h2>
+    <p>Başka kelimelerle aratmayı tekrar deneyiniz.</p>
 
-
+    <img src="resimler/dıııt.jpg" alt="Örnek Resim" width="300" height="200">
+    <a href="index.php" style="color: darkgray"> Ana Sayfaya Dönmek İçin Tıklayınız.</a>
     <div class="container text-center">
         <div class="row">

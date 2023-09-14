@@ -140,7 +140,7 @@ if (isset($_POST["formname"])) {
 <nav class="navbar navbar-bg-custom">
     <div class="container-fluid">
         <a class="navbar-brand navbar-brand-custom">Ne aramıştınız?</a>
-        <form class="d-flex" role="search" action="hataliGiris.php">
+        <form class="d-flex" role="search" action="arat.php">
             <input class="form-control me-2 search-text" type="Ara" placeholder="Ara" aria-label="Ara">
             <button class="btn btn-outline-success" type="submit">Ara</button>
 
